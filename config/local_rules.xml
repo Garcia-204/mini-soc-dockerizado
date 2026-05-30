@@ -1,0 +1,27 @@
+<!-- Reglas personalizadas - Mini SOC Distribuidora Pamplona S.A.S. -->
+<group name="local,">
+
+  <!-- REGLA 1: Fuerza bruta SSH - multiples fallos de autenticacion -->
+  <rule id="100001" level="10" frequency="5" timeframe="60">
+    <if_matched_sid>5716</if_matched_sid>
+    <description>Fuerza bruta SSH: multiples intentos fallidos de autenticacion detectados.</description>
+    <group>authentication_failures,pci_dss_10.2.4,pci_dss_10.2.5,</group>
+  </rule>
+
+  <!-- REGLA 2: Escaneo de puertos - reconocimiento de red -->
+  <rule id="100002" level="8">
+    <if_sid>1002</if_sid>
+    <match>nmap</match>
+    <description>Posible escaneo de puertos detectado: actividad de reconocimiento de red.</description>
+    <group>recon,network_scan,</group>
+  </rule>
+
+  <!-- REGLA 3: Ataque web SQLi o XSS contra DVWA -->
+  <rule id="100003" level="10">
+    <if_sid>31100,31101,31106</if_sid>
+    <url>dvwa</url>
+    <description>Posible ataque web SQLi o XSS detectado contra aplicacion vulnerable DVWA.</description>
+    <group>web_attack,pci_dss_6.5.1,</group>
+  </rule>
+
+</group>
