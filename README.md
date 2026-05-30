@@ -1,5 +1,5 @@
 # Mini SOC Dockerizado
-## Proyecto Integrador - Gestión de Redes ISER 2026-1
+## Proyecto Integrador - Seguridad en Redes ISER 2026-1
 ### Distribuidora Pamplona S.A.S.
 
 ## Requisitos
